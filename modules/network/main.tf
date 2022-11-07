@@ -50,6 +50,10 @@ data "aws_ami" "amazon_linux" {
     values = ["amzn2-ami-hvm-*-x86_64-gp2"]
   }
 }
+  
+data "aws_ec2_instance_type" "bastion" {
+  instance_type = var.bastion_instance_type
+}
 
 resource "aws_instance" "bastion" {
   instance_type = var.bastion_instance_type
